@@ -2,17 +2,9 @@
 import React, { useState } from "react";
 import Seat from "./Seat";
 
-function Table() {
+function Table({ tableIndex, orders, updateOrder }) {
   const numberOfSeats = 4; // Set the number of seats
-  const [orders, setOrders] = useState(Array(numberOfSeats).fill([])); // Initialize orders for each seat
   const [selectedSeat, setSelectedSeat] = useState(null); // Track the selected seat
-
-  // Function to add an item to the order of a specific seat
-  const addToOrder = (seatIndex, item) => {
-    const newOrders = [...orders];
-    newOrders[seatIndex] = [...newOrders[seatIndex], item];
-    setOrders(newOrders);
-  };
 
   // Function to go back to the seat selection
   const onBackToSeats = () => {
@@ -20,8 +12,8 @@ function Table() {
   };
 
   return (
-    <div className="Table">
-      <h1>POS System - Table</h1>
+    <div className="table-content">
+      <h1>POS System - Table {tableIndex + 1}</h1>
       <h2>Available Seats</h2>
 
       {/* Render buttons for each seat */}
@@ -39,7 +31,7 @@ function Table() {
           <Seat
             seatNumber={selectedSeat + 1}
             order={orders[selectedSeat]} // Pass the order for the specific seat
-            addToOrder={(item) => addToOrder(selectedSeat, item)} // Pass the addToOrder function
+            addToOrder={(item) => updateOrder(tableIndex, selectedSeat, item)} // Pass the updateOrder function
             onBackToSeats={onBackToSeats} // Function to go back to seat selection
           />
         </div>
