@@ -204,9 +204,9 @@ h2 {
 
 /* Styles for individual table squares */
 .table-square {
-  width: 100px; /* Set a fixed width for tables */
-  height: 100px; /* Set a fixed height for tables */
-  background-color: lightgray; /* Default background color */
+  width: 60px; /* Set a fixed width for tables */
+  height: 60px; /* Set a fixed height for tables */
+  background-color: white; /* Default background color */
   border: 2px solid #007bff; /* Border color */
   border-radius: 10px; /* Rounded corners */
   display: flex;
@@ -226,4 +226,65 @@ h2 {
 .table-square.selected {
   background-color: lightblue; /* Active table color */
   color: white; /* Text color for active table */
+}
+
+/* styles.css */
+
+/* Styles for the restaurant map */
+.restaurant-map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* Styles for sectors */
+.sector {
+  background-color: lightgray; /* Light grey background */
+  padding: 20px; /* Padding inside the sector */
+  border-radius: 10px; /* Rounded corners */
+  margin: 20px; /* Margin around the sector */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sector h3 {
+  text-align: center;
+}
+
+.sector-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Styles for table squares */
+.table-square {
+  width: 60px;
+  height: 60px;
+  background-color: lightgray;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move; /* Indicate draggable */
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+.table-square:hover {
+  background-color: deepskyblue;
+}
+
+.table-square.selected {
+  background-color: lightblue;
+  color: white;
+  border-color: #0056b3;
+}
+
+/* Styles when a table is being dragged */
+.table-square[style*="opacity: 0.5"] {
+  background-color: #aaa;
 }
